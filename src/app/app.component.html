@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <button
+    class="hamburger hamburger--slider"
+    (click)="drawer.toggle()"
+    [class.is-active]="drawer.opened"
+    type="button"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+  </button>
+
+  <mat-icon>analytics</mat-icon>
+  Dashboard
+</mat-toolbar>
+
+<mat-drawer-container class="container" [hasBackdrop]="true">
+  <mat-drawer #drawer mode="over">
+    <nav>
+      <a routerLink="/" (click)="drawer.close()">Home</a>
+      <a routerLink="/about" (click)="drawer.close()">About</a>
+    </nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
